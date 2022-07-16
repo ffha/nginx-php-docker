@@ -33,4 +33,4 @@ COPY php.ini /etc/php81/conf.d/custom.ini
 COPY fpm-pool.conf /etc/php81/php-fpm.d/www.conf
 RUN apk del zlib-dev geoip-dev pcre-dev openssl-dev gd-dev build-base
 COPY site /usr/share/nginx/html
-CMD nginx -g "daemon off;"
+CMD ["/usr/bin/supervisord", "-c", "/etc/supervisor/conf.d/supervisord.conf"]
