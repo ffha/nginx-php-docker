@@ -5,3 +5,4 @@ RUN wget http://soft.vpser.net/lnmp/lnmp1.9.tar.gz -cO lnmp1.9.tar.gz && tar zxf
 COPY start.sh /start.sh
 RUN chmod 755 /start.sh
 CMD /start.sh
+ENTRYPOINT ["/usr/bin/tini", "--"]
